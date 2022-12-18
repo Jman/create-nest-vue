@@ -1,0 +1,84 @@
+{
+  "name": "create-nest-vue",
+  "version": "1.0.0",
+  "description": "create project with vue and nest",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "esbuild ./src/index --bundle --tree-shaking=true --outdir=dist --platform=node --format=esm --out-extension:.js=.mjs --banner:js=\"import { createRequire } from 'module';const require = createRequire(import.meta.url);\"",
+    "dev": "pnpm run build --watch",
+    "test": "echo \"Error: no test specified\"",
+    "lint": "xo .",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [],
+  "author": "Eugene Tereshchenko",
+  "license": "MIT",
+  "bin": {
+    "create-nest-vue": "index.js"
+  },
+  "files": [
+    "index.js",
+    "dist",
+    "template"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/lodash.set": "^4.3.7",
+    "@types/lodash.unset": "^4.5.7",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.11.15",
+    "cross-spawn": "^7.0.3",
+    "esbuild": "^0.16.7",
+    "lodash.set": "^4.3.2",
+    "lodash.unset": "^4.5.2",
+    "minimist": "^1.2.7",
+    "xo": "^0.53.1"
+  },
+  "xo": {
+    "space": true,
+    "bracketSpacing": true,
+    "prettier": true,
+    "ignores": [
+      "template"
+    ],
+    "rules": {
+      "capitalized-comments": "off"
+    },
+    "overrides": [
+      {
+        "files": "**/*.ts",
+        "rules": {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            {
+              "selector": "variable",
+              "modifiers": [
+                "const",
+                "global"
+              ],
+              "format": [
+                "strictCamelCase",
+                "UPPER_CASE"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": true
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
+  }
+}

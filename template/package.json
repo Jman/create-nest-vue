@@ -1,0 +1,29 @@
+{
+  "name": "create-nest-vue",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r --parallel build",
+    "build:api": "pnpm -r --filter api run build",
+    "build:ui": "pnpm -r --filter ui run build",
+    "dev": "pnpm -r run dev",
+    "dev:api": "pnpm -r --filter api run dev",
+    "dev:ui": "pnpm -r --filter ui run dev",
+    "lint": "pnpm -r --parallel lint",
+    "lint:api": "pnpm -r --filter api run lint",
+    "lint:ui": "pnpm -r --filter ui run lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
