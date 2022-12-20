@@ -26,7 +26,11 @@ if (process.argv.length < 3) {
 const vuePkg = 'ui';
 const nestPkg = 'api';
 const defaultTargetDir = 'nest-vue-project';
-const filesToRemove = [`${vuePkg}/.vscode`, `${vuePkg}/.prettierrc.json`];
+const filesToRemove = [
+  `${vuePkg}/.vscode`,
+  `${vuePkg}/.prettierrc.json`,
+  `${vuePkg}/.gitignore`,
+];
 const argv = minimist(process.argv.slice(2), { string: ['_'] });
 
 const templateDir = path.resolve(
@@ -84,7 +88,10 @@ async function main() {
   await Promise.all(
     files.map(async (file) => {
       const src = path.join(templateDir, file);
-      const dest = path.join(projectPath, file);
+      const dest = path.join(
+        projectPath,
+        file === 'gitignore' ? '.gitignore' : file,
+      );
       return copy(src, dest);
     }),
   );
@@ -103,6 +110,9 @@ async function main() {
     const src = path.join(projectPath, file);
     void remove(src);
   }
+
+  console.log('Init Git');
+  execute(`git init`);
 }
 
 try {
