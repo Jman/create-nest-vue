@@ -1,6 +1,6 @@
 {
   "name": "create-nest-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create project with vue and nest",
   "type": "module",
   "scripts": {
