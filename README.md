@@ -28,12 +28,17 @@ pnpm lint
 
 ## Release History
 
+### 1.0.2
+
+- Replace XO with Prettier/Eslint
+- Update README
+
 ### 1.0.1
 
-* Add git initialization
-* Add `.gitignore`
-* Add README
+- Add git initialization
+- Add `.gitignore`
+- Add README
 
 ### 1.0.0
 
-* Initial commit
+- Initial commit

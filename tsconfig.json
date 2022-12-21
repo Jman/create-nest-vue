@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["src", "index.js"],
   "ignore": ["node_modules", "template"],
   "compilerOptions": {
     "outDir": "dist",
